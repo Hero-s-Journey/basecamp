@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: auto;
+  }
+  body {
+    @apply font-sans antialiased;
+    background-color: #ffffff;
+    color: #201E1E;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection {
+    background-color: #8ABAD5;
+    color: #ffffff;
+  }
+}
+
+/* -------- Global brand typography (applies to Home + ClubPage + Modal) -------- */
+/* Kill synthetic italic/bold so the browser doesn't fake styles when a font
+   variant is missing. */
+.hj-brand,
+.hj-brand * {
+  font-style: normal !important;
+  font-synthesis: none;
+}
+
+/* Body / small text — Suisse Intl Condensed Regular (user-installed system
+   variant); fall back to plain Suisse Intl and then Inter. */
+.hj-brand,
+.hj-brand p,
+.hj-brand span,
+.hj-brand li,
+.hj-brand a,
+.hj-brand button,
+.hj-brand input,
+.hj-brand select,
+.hj-brand textarea,
+.hj-brand label {
+  font-family: "Suisse Intl Condensed", "SuisseIntlCondensed",
+    "Suisse Intl", "Suisse Int'l", "SuisseIntl",
+    "Neue Haas Grotesk Text", "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Titles — Bebas Neue Pro / Cyrillic first (system-installed);
+   Oswald 700 as shared Latin+Cyrillic fallback so digits and letters
+   render at consistent metrics; Google Fonts' free Bebas Neue is
+   Latin-only and demoted to last-resort. */
+.hj-brand h1,
+.hj-brand h2,
+.hj-brand h3,
+.hj-brand h4,
+.hj-brand .hj-title {
+  font-family: "Bebas Neue Pro", "Bebas Neue Cyrillic", "BebasNeueCyrillic",
+    "Oswald", "Bebas Neue", "Impact", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* Card display face — wide heavy grotesk used on club-card names
+   (VILLA, COLIBRI, ...) and matching call-outs. */
+.hj-brand .hj-display {
+  font-family: "Suisse Intl Condensed", "SuisseIntlCondensed",
+    "Suisse Intl", "Inter", "Neue Haas Grotesk Display",
+    "Helvetica Neue", Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+@layer utilities {
+  .text-display {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.01em;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  .marquee-track {
+    animation: marquee 36s linear infinite;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .hero-fade-in {
+    animation: heroFadeIn 0.5s ease both;
+  }
+  @keyframes heroFadeIn {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes hexGlow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+  .hex-trace {
+    stroke-dasharray: 150 1410;
+    animation: hexTrace 4.5s linear infinite;
+  }
+  @keyframes hexTrace {
+    to { stroke-dashoffset: -1560; }
+  }
+  .timeline-unlock-pulse {
+    animation: timelineUnlockPulse 1.6s ease-in-out infinite;
+  }
+  @keyframes timelineUnlockPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(61, 220, 92, 0); }
+    50% { box-shadow: 0 0 30px 3px rgba(61, 220, 92, 0.6); }
+  }
+  .timeline-pop {
+    animation: timelinePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  @keyframes timelinePop {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.3); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .hero-ripple {
+    animation: heroRipple 2.6s cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+  }
+  @keyframes heroRipple {
+    0% { transform: scale(0.4); opacity: 0; }
+    12% { opacity: 0.55; }
+    100% { transform: scale(3.2); opacity: 0; }
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom range slider for before/after */
+.ba-range {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+.ba-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0;
+  height: 0;
+}
+.ba-range::-moz-range-thumb {
+  width: 0;
+  height: 0;
+  border: none;
+}

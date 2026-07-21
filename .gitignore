@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+out/
+build/
+
+# Auto-generated
+auto-imports.d.ts
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local env
+.env
+.env.local
+.env.*.local
+
+# Claude / AI tooling
+.claude/
+.aider*
+CLAUDE.md
+
+# Misc
+*.tsbuildinfo
+
+# Local-only files kept out of the repo
+_archive/

@@ -1,0 +1,1212 @@
+.design-canvas *, .design-canvas {
+  box-sizing: border-box;
+}
+.design-canvas-body {
+  font-size: 14px;
+}
+.design-canvas .v1_2 {
+  width: 100%;
+  height: 12103px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.design-canvas .v1_3 {
+  width: 154px;
+  height: 83px;
+  background: rgba(138,186,213,1);
+  opacity: 1;
+  position: absolute;
+  top: 2352px;
+  left: 169px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+.design-canvas .v1_4 {
+  width: 163px;
+  height: 83px;
+  background: rgba(218,218,218,0.6499999761581421);
+  opacity: 1;
+  position: absolute;
+  top: 2352px;
+  left: 330px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+.design-canvas .v1_5 {
+  width: 162px;
+  height: 83px;
+  background: rgba(218,218,218,0.6499999761581421);
+  opacity: 1;
+  position: absolute;
+  top: 2352px;
+  left: 500px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+.design-canvas .v1_6 {
+  width: 237px;
+  height: 83px;
+  background: rgba(218,218,218,0.6499999761581421);
+  opacity: 1;
+  position: absolute;
+  top: 2352px;
+  left: 673px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+.design-canvas .v1_7 {
+  width: 237px;
+  height: 83px;
+  background: rgba(218,218,218,0.6499999761581421);
+  opacity: 1;
+  position: absolute;
+  top: 2526px;
+  left: 544px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+.design-canvas .v1_8 {
+  width: 237px;
+  height: 83px;
+  background: rgba(218,218,218,0.6499999761581421);
+  opacity: 1;
+  position: absolute;
+  top: 2526px;
+  left: 296px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+.design-canvas .v1_9 {
+  width: 997px;
+  height: 100%;
+  background: url("/design/v1_9.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 9262px;
+  left: 46px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  overflow: hidden;
+}
+.design-canvas .v1_10 {
+  width: 998px;
+  color: rgba(32,30,30,1);
+  position: absolute;
+  top: 2043px;
+  left: 40px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 120px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_11 {
+  width: 433px;
+  height: 147px;
+  background: rgba(138,186,213,1);
+  opacity: 1;
+  position: absolute;
+  top: 10736px;
+  left: 328px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  overflow: hidden;
+}
+.design-canvas .v1_12 {
+  width: 998px;
+  height: 690px;
+  background: rgba(30,30,30,1);
+  opacity: 1;
+  position: absolute;
+  top: 7935px;
+  left: 41px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  overflow: hidden;
+}
+.design-canvas .v1_13 {
+  width: 319px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 10770px;
+  left: 385px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 80px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_14 {
+  width: 257px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 10901px;
+  left: 416px;
+  font-family: Suisse Intl;
+  font-weight: Bold;
+  font-size: 40px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_15 {
+  width: 514px;
+  color: rgba(218,218,218,1);
+  position: absolute;
+  top: 1925px;
+  left: 282px;
+  font-family: Suisse Intl;
+  font-weight: Bold;
+  font-size: 35px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_16 {
+  width: 997px;
+  height: 1796px;
+  background: url("/design/v1_16.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 46px;
+  left: 41px;
+  overflow: hidden;
+}
+.design-canvas .v1_17 {
+  width: 997px;
+  height: 100%;
+  background: url("/design/v1_17.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  overflow: hidden;
+}
+.design-canvas .v1_18 {
+  width: 917px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 940px;
+  left: 40px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 280px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_19 {
+  width: 691px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 1140px;
+  left: 153px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 50px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_20 {
+  width: 433px;
+  height: 147px;
+  background: rgba(106,197,242,1);
+  opacity: 1;
+  position: absolute;
+  top: 1474px;
+  left: 282px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  overflow: hidden;
+}
+.design-canvas .v1_21 {
+  width: 319px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 1508px;
+  left: 339px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 80px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_22 {
+  width: 257px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 1639px;
+  left: 370px;
+  font-family: Suisse Intl;
+  font-weight: Bold;
+  font-size: 40px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_23 {
+  width: 224px;
+  height: 77px;
+  background: url("/design/v1_23.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 100px;
+  left: 386px;
+  overflow: hidden;
+}
+.design-canvas .v1_24 {
+  width: 224px;
+  height: 77px;
+  background: url("/design/v1_24.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  box-shadow: 0px 16px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+.design-canvas .v1_25 {
+  width: 224px;
+  height: 36px;
+  background: url("/design/v1_25.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  overflow: hidden;
+}
+.design-canvas .v1_26 {
+  width: 26px;
+  height: 36px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.design-canvas .v1_27 {
+  width: 41px;
+  height: 22px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 17px;
+}
+.design-canvas .v1_28 {
+  width: 41px;
+  height: 22px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 51px;
+}
+.design-canvas .v1_29 {
+  width: 41px;
+  height: 22px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 83px;
+}
+.design-canvas .v1_30 {
+  width: 41px;
+  height: 22px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 116px;
+}
+.design-canvas .v1_31 {
+  width: 41px;
+  height: 22px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 149px;
+}
+.design-canvas .v1_32 {
+  width: 41px;
+  height: 36px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 36px;
+  left: 224px;
+  transform: rotate(-180deg);
+}
+.design-canvas .v1_33 {
+  width: 189px;
+  height: 36px;
+  background: url("/design/v1_33.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 32px;
+  overflow: hidden;
+}
+.design-canvas .v1_34 {
+  width: 41px;
+  height: 22px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 14px;
+  left: 32px;
+}
+.design-canvas .v1_35 {
+  width: 41px;
+  height: 22px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 14px;
+  left: 98px;
+}
+.design-canvas .v1_36 {
+  width: 41px;
+  height: 22px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 14px;
+  left: 66px;
+}
+.design-canvas .v1_37 {
+  width: 41px;
+  height: 22px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 14px;
+  left: 147px;
+}
+.design-canvas .v1_38 {
+  width: 16px;
+  height: 8px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 14px;
+  left: 139px;
+}
+.design-canvas .v1_39 {
+  width: 41px;
+  height: 36px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.design-canvas .v1_40 {
+  width: 998px;
+  height: 690px;
+  background: rgba(138,186,213,1);
+  opacity: 1;
+  position: absolute;
+  top: 7198px;
+  left: 41px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  overflow: hidden;
+}
+.design-canvas .v1_41 {
+  width: 998px;
+  color: rgba(138,186,213,1);
+  position: absolute;
+  top: 6730px;
+  left: 41px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 240px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_42 {
+  width: 998px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 9960px;
+  left: 45px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 240px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_43 {
+  width: 230px;
+  color: rgba(218,218,218,0.6499999761581421);
+  position: absolute;
+  top: 11114px;
+  left: 45px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 200px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_44 {
+  width: 671px;
+  color: rgba(138,186,213,1);
+  position: absolute;
+  top: 11480px;
+  left: 368px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 200px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_45 {
+  width: 811px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 7445px;
+  left: 135px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 120px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_46 {
+  width: 603px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 7270px;
+  left: 238px;
+  font-family: Suisse Intl;
+  font-weight: Book Italic;
+  font-size: 40px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_47 {
+  width: 603px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 7717px;
+  left: 239px;
+  font-family: Suisse Intl;
+  font-weight: Medium;
+  font-size: 30px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_48 {
+  width: 603px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 10416px;
+  left: 243px;
+  font-family: Suisse Intl;
+  font-weight: Medium;
+  font-size: 40px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_49 {
+  width: 438px;
+  color: rgba(218,218,218,1);
+  position: absolute;
+  top: 11738px;
+  left: 46px;
+  font-family: Suisse Intl;
+  font-weight: Medium;
+  font-size: 40px;
+  opacity: 1;
+  text-align: left;
+}
+.design-canvas .v1_50 {
+  width: 438px;
+  color: rgba(218,218,218,1);
+  position: absolute;
+  top: 11738px;
+  left: 605px;
+  font-family: Suisse Intl;
+  font-weight: Medium;
+  font-size: 40px;
+  opacity: 1;
+  text-align: right;
+}
+.design-canvas .v1_51 {
+  width: 84px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 2365px;
+  left: 202px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 50px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_52 {
+  width: 116px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 2365px;
+  left: 352px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 50px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_53 {
+  width: 186px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 2365px;
+  left: 699px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 50px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_54 {
+  width: 190px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 2539px;
+  left: 568px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 50px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_55 {
+  width: 184px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 2539px;
+  left: 323px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 50px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_56 {
+  width: 79px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 2365px;
+  left: 541px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 50px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_57 {
+  width: 163px;
+  color: rgba(218,218,218,1);
+  position: absolute;
+  top: 2261px;
+  left: 459px;
+  font-family: Suisse Intl;
+  font-weight: Bold;
+  font-size: 35px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_58 {
+  width: 149px;
+  color: rgba(218,218,218,1);
+  position: absolute;
+  top: 2439px;
+  left: 466px;
+  font-family: Suisse Intl;
+  font-weight: Bold;
+  font-size: 35px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_59 {
+  width: 935px;
+  color: rgba(138,186,213,1);
+  position: absolute;
+  top: 2700px;
+  left: 73px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 250px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_60 {
+  width: 997px;
+  height: 100%;
+  background: url("/design/v1_60.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 3839px;
+  left: 40px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  overflow: hidden;
+}
+.design-canvas .v1_61 {
+  width: 997px;
+  height: 100%;
+  background: url("/design/v1_61.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 5430px;
+  left: 40px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  overflow: hidden;
+}
+.design-canvas .v1_62 {
+  width: 996px;
+  height: 100%;
+  background: url("/design/v1_62.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 8158px;
+  left: 42px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  overflow: hidden;
+}
+.design-canvas .v1_63 {
+  width: 737px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 4532px;
+  left: 170px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 200px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_64 {
+  width: 316px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 4434px;
+  left: 381px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 70px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_65 {
+  width: 735px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 5845px;
+  left: 171px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 150px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_66 {
+  width: 692px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 4732px;
+  left: 193px;
+  font-family: Suisse Intl;
+  font-weight: Regular;
+  font-size: 35px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_67 {
+  width: 692px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 9021px;
+  left: 193px;
+  font-family: Suisse Intl;
+  font-weight: Regular;
+  font-size: 35px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_68 {
+  width: 736px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 6263px;
+  left: 171px;
+  font-family: Suisse Intl;
+  font-weight: Regular;
+  font-size: 32px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_69 {
+  width: 100px;
+  height: 100px;
+  background: url("/design/v1_69.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 2731px;
+  left: 493px;
+  overflow: hidden;
+}
+.design-canvas .v1_70 {
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 50%;
+}
+.design-canvas .v1_71 {
+  width: 28px;
+  color: rgba(138,186,213,1);
+  position: absolute;
+  top: 20px;
+  left: 36px;
+  font-family: Suisse Intl;
+  font-weight: Bold;
+  font-size: 70px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_72 {
+  width: 100px;
+  height: 100px;
+  background: url("/design/v1_72.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 2959px;
+  left: 493px;
+  overflow: hidden;
+}
+.design-canvas .v1_73 {
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 50%;
+}
+.design-canvas .v1_74 {
+  width: 28px;
+  color: rgba(138,186,213,1);
+  position: absolute;
+  top: 20px;
+  left: 36px;
+  font-family: Suisse Intl;
+  font-weight: Bold;
+  font-size: 70px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_75 {
+  width: 100px;
+  height: 100px;
+  background: url("/design/v1_75.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 3174px;
+  left: 493px;
+  overflow: hidden;
+}
+.design-canvas .v1_76 {
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 50%;
+}
+.design-canvas .v1_77 {
+  width: 28px;
+  color: rgba(138,186,213,1);
+  position: absolute;
+  top: 20px;
+  left: 36px;
+  font-family: Suisse Intl;
+  font-weight: Bold;
+  font-size: 70px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_78 {
+  width: 100px;
+  height: 100px;
+  background: url("/design/v1_78.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 3619px;
+  left: 493px;
+  overflow: hidden;
+}
+.design-canvas .v1_79 {
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 50%;
+}
+.design-canvas .v1_80 {
+  width: 28px;
+  color: rgba(138,186,213,1);
+  position: absolute;
+  top: 20px;
+  left: 36px;
+  font-family: Suisse Intl;
+  font-weight: Bold;
+  font-size: 70px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_81 {
+  width: 100px;
+  height: 100px;
+  background: url("/design/v1_81.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 3399px;
+  left: 493px;
+  overflow: hidden;
+}
+.design-canvas .v1_82 {
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 50%;
+}
+.design-canvas .v1_83 {
+  width: 28px;
+  color: rgba(138,186,213,1);
+  position: absolute;
+  top: 20px;
+  left: 36px;
+  font-family: Suisse Intl;
+  font-weight: Bold;
+  font-size: 70px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_84 {
+  width: 854px;
+  color: rgba(32,30,30,1);
+  position: absolute;
+  top: 5204px;
+  left: 117px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 80px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_85 {
+  width: 908px;
+  color: rgba(138,186,213,1);
+  position: absolute;
+  top: 7986px;
+  left: 90px;
+  font-family: Suisse Intl;
+  font-weight: Bold;
+  font-size: 50px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_86 {
+  width: 354px;
+  color: rgba(218,218,218,1);
+  position: absolute;
+  top: 5073px;
+  left: 367px;
+  font-family: Suisse Intl;
+  font-weight: Bold;
+  font-size: 35px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_87 {
+  width: 337px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 5539px;
+  left: 370px;
+  font-family: Suisse Intl;
+  font-weight: Bold;
+  font-size: 35px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_88 {
+  width: 237px;
+  height: 83px;
+  background: rgba(138,186,213,1);
+  opacity: 1;
+  position: absolute;
+  top: 8882px;
+  left: 420px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+.design-canvas .v1_89 {
+  width: 182px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 8895px;
+  left: 448px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 50px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_90 {
+  width: 30px;
+  height: 30px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 4946px;
+  left: 440px;
+  border-radius: 50%;
+}
+.design-canvas .v1_91 {
+  width: 30px;
+  height: 30px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 6525px;
+  left: 440px;
+  border-radius: 50%;
+}
+.design-canvas .v1_92 {
+  width: 30px;
+  height: 30px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 4946px;
+  left: 552px;
+  border-radius: 50%;
+}
+.design-canvas .v1_93 {
+  width: 30px;
+  height: 30px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 6525px;
+  left: 552px;
+  border-radius: 50%;
+}
+.design-canvas .v1_94 {
+  width: 30px;
+  height: 30px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 4946px;
+  left: 496px;
+  border-radius: 50%;
+}
+.design-canvas .v1_95 {
+  width: 30px;
+  height: 30px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 6525px;
+  left: 496px;
+  border-radius: 50%;
+}
+.design-canvas .v1_96 {
+  width: 30px;
+  height: 30px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 4946px;
+  left: 608px;
+  border-radius: 50%;
+}
+.design-canvas .v1_97 {
+  width: 30px;
+  height: 30px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 6525px;
+  left: 608px;
+  border-radius: 50%;
+}
+.design-canvas .v1_98 {
+  width: 197px;
+  color: rgba(130,168,191,1);
+  position: absolute;
+  top: 9350px;
+  left: 446px;
+  font-family: Bebas Neue;
+  font-weight: Bold;
+  font-size: 60px;
+  opacity: 1;
+  text-align: center;
+}
+.design-canvas .v1_99 {
+  width: 100%;
+  height: 227px;
+  background: rgba(0,0,0,1);
+  opacity: 1;
+  position: absolute;
+  top: 11876px;
+  left: 0px;
+  overflow: hidden;
+}
+
+/* --- responsive wrapper for the 1080px design canvas --- */
+/* On wide screens we cap the canvas at --design-max (default 640px, a
+   comfortable phone-preview width) and centre it. On narrow screens the
+   canvas fills the viewport. JS sets --design-scale = actual width / 1080. */
+.design-stage {
+  width: 100%;
+  min-height: 100vh;
+  background: #0b0b0b;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+.design-viewport {
+  width: 100%;
+  max-width: var(--design-max, 640px);
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1080 / 12103;
+  background: #ffffff;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
+}
+.design-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1080px;
+  height: 12103px;
+  transform-origin: top left;
+  transform: scale(var(--design-scale, 1));
+}
+/* keep whitespace preserved so JSX multi-line strings render as designed */
+.design-canvas .v1_10,
+.design-canvas .v1_45,
+.design-canvas .v1_46,
+.design-canvas .v1_49,
+.design-canvas .v1_59,
+.design-canvas .v1_65 {
+  white-space: pre-line;
+}

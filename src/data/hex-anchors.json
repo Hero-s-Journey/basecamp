@@ -1,0 +1,50 @@
+{
+  "hex_big": {
+    "width": 1920,
+    "height": 1080,
+    "centerX": 0.50495,
+    "centerY": 0.57037,
+    "bbox": {
+      "minX": 0.31354,
+      "maxX": 0.69635,
+      "minY": 0.27037,
+      "maxY": 0.87037
+    }
+  },
+  "hex_small": {
+    "width": 1920,
+    "height": 1080,
+    "centerX": 0.50495,
+    "centerY": 0.57037,
+    "bbox": {
+      "minX": 0.3651,
+      "maxX": 0.64479,
+      "minY": 0.35,
+      "maxY": 0.79074
+    }
+  },
+  "hex_front": {
+    "width": 1920,
+    "height": 1080,
+    "centerX": 0.50469,
+    "centerY": 0.57037,
+    "bbox": {
+      "minX": 0.43594,
+      "maxX": 0.57344,
+      "minY": 0.46111,
+      "maxY": 0.67963
+    }
+  },
+  "man": {
+    "width": 1920,
+    "height": 1080,
+    "centerX": 0.50495,
+    "centerY": 0.59676,
+    "bbox": {
+      "minX": 0.41094,
+      "maxX": 0.59896,
+      "minY": 0.19444,
+      "maxY": 0.99907
+    }
+  }
+}
