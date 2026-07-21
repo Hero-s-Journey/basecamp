@@ -1,10 +1,14 @@
 /**
  * Fire-and-forget logging of successful payment intents to a Google Sheet
  * via Apps Script Web App. Failures here never block the user redirect.
+ *
+ * Currently DISABLED for Basecamp: the previous endpoint was shared with the
+ * fitness-checkup landing, so leads mixed into the same sheet. Set SHEET_URL to
+ * a dedicated Basecamp Apps Script deployment to re-enable — `logToSheet`
+ * turns back on automatically once the URL is non-empty.
  */
 
-const SHEET_URL =
-  "https://script.google.com/macros/s/AKfycbwz_PvR8tRhIgP4DowoOdDtpjNUO9b77Py4epQjTsuaLpkt_uKxVLhftfWkBwvJoI347Q/exec";
+const SHEET_URL = "";
 
 export type LeadStatus = "attempt" | "link_created" | "error" | "network_error";
 
@@ -32,6 +36,7 @@ export interface SheetRow {
  */
 export function logToSheet(row: SheetRow): void {
   if (typeof window === "undefined") return;
+  if (!SHEET_URL) return; // logging disabled until a dedicated endpoint is set
   try {
     fetch(SHEET_URL, {
       method: "POST",

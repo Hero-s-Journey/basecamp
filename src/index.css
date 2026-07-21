@@ -59,7 +59,7 @@
   font-family: "Bebas Neue Pro", "Bebas Neue Cyrillic", "BebasNeueCyrillic",
     "Oswald", "Bebas Neue", "Impact", "Arial Narrow", sans-serif;
   font-weight: 700;
-  letter-spacing: 0.01em;
+  letter-spacing: -1px;
 }
 
 /* Card display face — wide heavy grotesk used on club-card names

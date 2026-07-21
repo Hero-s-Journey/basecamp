@@ -130,7 +130,7 @@ const TRAINING_TYPES: TrainingType[] = [
   {
     key: "hiit",
     kicker: "Основа программы",
-    title: "HIIT · ИНТЕРВАЛЬНЫЕ",
+    title: "ИНТЕРВАЛЬНЫЕ",
     body: "Кардио и функциональные упражнения.",
     zones: [
       {
@@ -705,7 +705,7 @@ export default function DesignHome() {
       />
 
       <div className="hj-brand min-h-screen bg-white text-[#201E1E]">
-        <div className="mx-auto w-full max-w-[520px] px-5 sm:max-w-[640px] sm:px-6 lg:max-w-[720px]">
+        <div className="mx-auto w-full max-w-[520px] px-5 sm:max-w-[640px] sm:px-6 lg:max-w-[720px] [container-type:inline-size]">
 
           {/* ---------------- HERO ---------------- */}
           {/* Height leaves ~3rem breathing room so the top rounded corner is
@@ -720,7 +720,7 @@ export default function DesignHome() {
             }}
           >
             <img
-              src={asset("/design/v1_17.png")}
+              src={asset("/photos/hero_new.png")}
               alt=""
               className="absolute inset-0 h-full w-full object-cover"
               onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
@@ -731,16 +731,16 @@ export default function DesignHome() {
               <img
                 src={asset("/logo/hj_logo.png")}
                 alt="Hero's Journey"
-                className="h-8 sm:h-10 w-auto object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]"
+                className="h-10 sm:h-14 w-auto object-contain"
               />
 
               {/* Middle spacer — pushes content into lower third but leaves
                  room at the very bottom (via pb-8/pb-10 on parent). */}
               <div className="mt-auto w-full flex flex-col items-center text-center pb-4 sm:pb-6">
-                <h1 className="hj-title uppercase leading-[0.9] text-[clamp(56px,15vw,112px)]">
+                <h1 className="hj-title uppercase leading-[0.9] w-full text-[clamp(38px,22cqw,160px)]">
                   BASECAMP
                 </h1>
-                <p className="mt-3 hj-title uppercase tracking-wide text-[clamp(14px,3.4vw,20px)] opacity-95">
+                <p className="mt-3 w-full uppercase tracking-wide whitespace-nowrap text-[clamp(7.5px,3.3cqw,20px)] font-medium opacity-95">
                   6 тренировок&nbsp;&nbsp;|&nbsp;&nbsp;тренер&nbsp;&nbsp;|&nbsp;&nbsp;готовый план
                 </p>
 
@@ -753,9 +753,8 @@ export default function DesignHome() {
                     ЗАПИСАТЬСЯ
                   </span>
                 </a>
-                <p className="mt-3 hj-title uppercase tracking-wide text-[clamp(16px,3.4vw,20px)] opacity-95">
-                  за 19 990 тг
-                </p>
+                <p className="mt-3 uppercase tracking-wide text-[clamp(16px,3.4vw,20px)] font-medium opacity-95">
+                  за 19 990 тг                </p>
               </div>
             </div>
           </section>
@@ -768,33 +767,32 @@ export default function DesignHome() {
             >
               Абонемент BASECAMP
             </p>
-            <h2 className="mt-3 text-center hj-title uppercase leading-[0.95] text-[clamp(36px,10vw,64px)]">
-              Какие тренировки<br />входят в 19&nbsp;990&nbsp;тг?
-            </h2>
+            <h2 className="mt-3 text-center hj-title uppercase leading-[0.95] text-[clamp(28px,13cqw,92px)]">
+              Какие тренировки<br />входят в 19&nbsp;990&nbsp;тг?            </h2>
             <p className="mt-4 text-center text-sm sm:text-base max-w-md mx-auto opacity-80">
               Покупая 2-недельный пробный абонемент, ты получаешь доступ к 6 тренировкам с тренером в клубах Hero's Journey.
             </p>
 
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div className="mt-10 grid grid-cols-2 gap-2 sm:gap-4">
               {TRAINING_TYPES.map((c) => (
                 <button
                   key={c.key}
                   type="button"
                   onClick={() => setOpenType(c)}
-                  className="group rounded-2xl border p-5 sm:p-6 text-left transition hover:border-black/20"
+                  className="group flex flex-col items-center rounded-2xl border p-3 sm:p-6 text-center transition hover:border-black/20"
                   style={{ borderColor: "rgba(0,0,0,0.08)", background: "#f7f7f7" }}
                 >
-                  <p className="uppercase tracking-widest text-[10px] sm:text-[11px] font-bold opacity-45">
+                  <p className="uppercase tracking-widest text-[9px] sm:text-[11px] font-bold opacity-45">
                     {c.kicker}
                   </p>
                   <p
-                    className="mt-2 hj-title uppercase text-2xl sm:text-[26px] tracking-wide"
+                    className="mt-1.5 hj-title uppercase text-[23px] sm:text-[34px] tracking-wide"
                     style={{ color: C.blue }}
                   >
                     {c.title}
                   </p>
-                  <p className="mt-2 text-sm sm:text-base opacity-80">{c.body}</p>
-                  <span className="mt-3 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold opacity-60 transition group-hover:opacity-100">
+                  <p className="mt-1.5 text-xs sm:text-base opacity-80">{c.body}</p>
+                  <span className="mt-2 inline-flex items-center gap-1 text-[11px] sm:text-sm font-semibold opacity-60 transition group-hover:opacity-100">
                     Подробнее
                     <i className="ri-arrow-right-line text-sm transition-transform group-hover:translate-x-0.5" />
                   </span>
@@ -803,7 +801,7 @@ export default function DesignHome() {
             </div>
 
             {/* Facts strip: duration + coach presence */}
-            <div className="mt-3 sm:mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div className="mt-3 sm:mt-4 grid grid-cols-2 gap-3 sm:gap-4">
               {[
                 {
                   key: "duration",
@@ -820,16 +818,14 @@ export default function DesignHome() {
               ].map((f) => (
                 <div
                   key={f.key}
-                  className="flex items-center gap-4 rounded-2xl p-5 sm:p-6 text-white"
+                  className="flex flex-col items-center text-center gap-1.5 rounded-2xl p-4 sm:p-5 text-white"
                   style={{ background: C.night }}
                 >
-                  <i className={`${f.icon} text-2xl sm:text-3xl shrink-0`} style={{ color: C.blueBright }} />
-                  <div>
-                    <p className="hj-title uppercase text-xl sm:text-2xl tracking-wide leading-none">
-                      {f.title}
-                    </p>
-                    <p className="mt-1.5 text-xs sm:text-sm opacity-70">{f.body}</p>
-                  </div>
+                  <i className={`${f.icon} text-xl sm:text-2xl`} style={{ color: C.blueBright }} />
+                  <p className="hj-title uppercase text-base sm:text-xl tracking-wide leading-none">
+                    {f.title}
+                  </p>
+                  <p className="text-xs sm:text-sm opacity-70">{f.body}</p>
                 </div>
               ))}
             </div>
@@ -843,7 +839,7 @@ export default function DesignHome() {
             >
               О Hero's Journey
             </p>
-            <h2 className="mt-3 text-center hj-title uppercase leading-[0.95] text-[clamp(30px,8vw,52px)]">
+            <h2 className="mt-3 text-center hj-title uppercase leading-[0.95] text-[clamp(22px,9cqw,46px)]">
               Чем Hero's Journey отличается<br className="hidden sm:block" /> от обычного зала?
             </h2>
 
@@ -887,11 +883,11 @@ export default function DesignHome() {
                       {/* Title + body centered vertically (my-auto) */}
                       <div className="my-auto text-center">
                         <h3
-                          className="hj-title uppercase leading-[0.9] text-[clamp(40px,11vw,72px)] drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]"
+                          className="hj-title uppercase leading-[0.9] text-[clamp(40px,11vw,72px)]"
                         >
                           {c.title}
                         </h3>
-                        <p className="mt-5 text-[13px] sm:text-sm leading-snug max-w-[85%] mx-auto opacity-95 drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]">
+                        <p className="mt-5 text-[13px] sm:text-sm leading-snug max-w-[85%] mx-auto opacity-95">
                           {c.body}
                         </p>
                       </div>
@@ -925,9 +921,8 @@ export default function DesignHome() {
             <p className="text-center uppercase tracking-widest text-xs sm:text-sm" style={{ color: C.muted }}>
               Истории участников
             </p>
-            <h2 className="mt-3 text-center hj-title uppercase leading-[0.95] text-[clamp(30px,8vw,52px)]" style={{ color: C.blue }}>
-              10 000 АТЛЕТОВ В&nbsp;АЛМАТЫ И&nbsp;АСТАНЕ<br />УЖЕ&nbsp;ПРОШЛИ ЭТОТ ПУТЬ
-            </h2>
+            <h2 className="mt-3 text-center hj-title uppercase leading-[0.95] text-[clamp(20px,7.5cqw,42px)]" style={{ color: C.blue }}>
+              10 000 АТЛЕТОВ В&nbsp;АЛМАТЫ И&nbsp;АСТАНЕ<br />УЖЕ&nbsp;ПРОШЛИ ЭТОТ ПУТЬ            </h2>
             <p className="mt-4 text-center text-sm sm:text-base max-w-lg mx-auto opacity-80">
               Мы создали систему, которая работает даже для тех, кто раньше не верил в спорт. Ниже — реальные истории наших атлетов. Открой любую карточку и посмотри её историю в Instagram.
             </p>
@@ -986,7 +981,7 @@ export default function DesignHome() {
             >
               Клубы
             </p>
-            <h2 className="mt-3 text-center hj-title uppercase leading-[0.95] text-[clamp(36px,10vw,64px)]">
+            <h2 className="mt-3 text-center hj-title uppercase leading-[0.95] text-[clamp(32px,17cqw,130px)]">
               Готов начать?
             </h2>
             <p className="mt-4 text-center text-sm sm:text-base max-w-md mx-auto opacity-80">
@@ -1042,7 +1037,7 @@ export default function DesignHome() {
               className="block w-full transition hover:opacity-80"
             >
               <h3
-                className="hj-title uppercase leading-none text-[clamp(60px,18vw,120px)]"
+                className="text-left hj-title uppercase leading-none text-[clamp(60px,18vw,120px)]"
                 style={{ color: C.mutedSoft }}
               >
                 FAQ
@@ -1054,7 +1049,7 @@ export default function DesignHome() {
               className="mt-6 block w-full transition hover:opacity-80"
             >
               <h3
-                className="hj-title uppercase leading-none text-[clamp(60px,18vw,120px)]"
+                className="text-right hj-title uppercase leading-none text-[clamp(60px,18vw,120px)]"
                 style={{ color: C.blue }}
               >
                 КОНТАКТЫ
