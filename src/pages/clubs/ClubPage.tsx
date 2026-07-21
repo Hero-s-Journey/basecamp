@@ -128,6 +128,24 @@ export default function ClubPage() {
                 </p>
               )}
             </div>
+
+            {/* Primary CTA — visible above the fold so users can book without
+               scrolling to the trainings section below. */}
+            <div className="mt-8 flex justify-center">
+              <button
+                type="button"
+                onClick={() => open({ clubId: club.id })}
+                className="inline-flex flex-col items-center justify-center rounded-3xl px-10 py-3 sm:px-14 sm:py-4 shadow-lg transition hover:brightness-110"
+                style={{ background: C.blue }}
+              >
+                <span className="hj-title text-3xl sm:text-4xl tracking-wide text-white">
+                  ЗАПИСАТЬСЯ
+                </span>
+                <span className="mt-1 text-xs sm:text-sm font-semibold tracking-widest uppercase text-white/95">
+                  за 19 990 тг
+                </span>
+              </button>
+            </div>
           </section>
 
           {/* TRAININGS — swipeable carousel */}

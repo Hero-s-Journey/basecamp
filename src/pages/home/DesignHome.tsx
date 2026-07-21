@@ -737,7 +737,7 @@ export default function DesignHome() {
               {/* Middle spacer — pushes content into lower third but leaves
                  room at the very bottom (via pb-8/pb-10 on parent). */}
               <div className="mt-auto w-full flex flex-col items-center text-center pb-4 sm:pb-6">
-                <h1 className="hj-title uppercase leading-[0.9] w-full text-[clamp(38px,22cqw,160px)]">
+                <h1 className="hj-title uppercase leading-[0.9] w-full text-[clamp(38px,19cqw,150px)]">
                   BASECAMP
                 </h1>
                 <p className="mt-3 w-full uppercase tracking-wide whitespace-nowrap text-[clamp(7.5px,3.3cqw,20px)] font-medium opacity-95">
@@ -754,7 +754,8 @@ export default function DesignHome() {
                   </span>
                 </a>
                 <p className="mt-3 uppercase tracking-wide text-[clamp(16px,3.4vw,20px)] font-medium opacity-95">
-                  за 19 990 тг                </p>
+                  за 19 990 тг
+                </p>
               </div>
             </div>
           </section>
@@ -767,8 +768,9 @@ export default function DesignHome() {
             >
               Абонемент BASECAMP
             </p>
-            <h2 className="mt-3 text-center hj-title uppercase leading-[0.95] text-[clamp(28px,13cqw,92px)]">
-              Какие тренировки<br />входят в 19&nbsp;990&nbsp;тг?            </h2>
+            <h2 className="mt-3 text-center hj-title uppercase leading-[0.95] text-[clamp(28px,11cqw,56px)]">
+              Какие тренировки<br />входят в 19&nbsp;990&nbsp;тг?
+            </h2>
             <p className="mt-4 text-center text-sm sm:text-base max-w-md mx-auto opacity-80">
               Покупая 2-недельный пробный абонемент, ты получаешь доступ к 6 тренировкам с тренером в клубах Hero's Journey.
             </p>
@@ -843,7 +845,7 @@ export default function DesignHome() {
               Чем Hero's Journey отличается<br className="hidden sm:block" /> от обычного зала?
             </h2>
 
-            <div className="mt-8 relative">
+            <div className="mt-8 relative mx-auto max-w-[420px]">
             <div
               ref={diff.ref}
               onScroll={diff.onScroll}
@@ -853,7 +855,7 @@ export default function DesignHome() {
               {DIFF_CARDS.map((c) => (
                 <div
                   key={c.title}
-                  className="relative w-full shrink-0 snap-center overflow-hidden"
+                  className="relative w-full shrink-0 snap-center overflow-hidden [container-type:inline-size]"
                   style={{ scrollSnapAlign: "center" }}
                 >
                   <div className="relative aspect-[4/5] w-full bg-neutral-900">
@@ -883,7 +885,7 @@ export default function DesignHome() {
                       {/* Title + body centered vertically (my-auto) */}
                       <div className="my-auto text-center">
                         <h3
-                          className="hj-title uppercase leading-[0.9] text-[clamp(40px,11vw,72px)]"
+                          className="hj-title uppercase leading-[0.9] text-[clamp(36px,15cqw,64px)]"
                         >
                           {c.title}
                         </h3>
@@ -981,11 +983,11 @@ export default function DesignHome() {
             >
               Клубы
             </p>
-            <h2 className="mt-3 text-center hj-title uppercase leading-[0.95] text-[clamp(32px,17cqw,130px)]">
+            <h2 className="mt-3 text-center hj-title uppercase leading-[0.95] text-[clamp(32px,13cqw,68px)]">
               Готов начать?
             </h2>
             <p className="mt-4 text-center text-sm sm:text-base max-w-md mx-auto opacity-80">
-              Выбери свой клуб — после оплаты сразу выбираешь дату первой тренировки в приложении.
+              Выбери свой клуб.
             </p>
 
             {/* City tabs */}
