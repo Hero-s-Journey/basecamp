@@ -633,7 +633,7 @@ function ClubCarousel({ clubs }: { clubs: Club[] }) {
               <span
                 className="mt-auto inline-flex items-center gap-1.5 rounded-full bg-white text-neutral-900 px-5 py-2 hj-title uppercase tracking-widest text-sm sm:text-base shadow-md transition-transform group-hover:translate-y-[-2px]"
               >
-                Подробнее
+                Выбрать
                 <i className="ri-arrow-right-line text-base" />
               </span>
             </div>
@@ -918,13 +918,38 @@ export default function DesignHome() {
             </div>
           </section>
 
+          {/* ---------------- MID-PAGE CTA -> club picker ---------------- */}
+          <section className="mt-16 sm:mt-20">
+            <div
+              className="relative overflow-hidden rounded-[28px] px-6 py-10 sm:py-14 text-center text-white [container-type:inline-size]"
+              style={{ background: C.night }}
+            >
+              <h2 className="hj-title uppercase leading-[0.95] text-[clamp(26px,9cqw,52px)]">
+                6 тренировок с тренером<br />за 19&nbsp;990&nbsp;тг
+              </h2>
+              <p className="mt-3 text-sm sm:text-base opacity-70 max-w-md mx-auto">
+                2-недельный пробный абонемент. Выбери клуб и начни уже на этой неделе.
+              </p>
+              <a
+                href="#clubs"
+                className="mt-6 inline-flex items-center justify-center rounded-3xl px-10 py-3 sm:px-14 sm:py-4 shadow-lg transition hover:brightness-110"
+                style={{ background: C.blueBright }}
+              >
+                <span className="hj-title text-2xl sm:text-3xl tracking-wide">
+                  Выбрать клуб
+                </span>
+              </a>
+            </div>
+          </section>
+
           {/* ---------------- ATHLETE STORIES (moved above club picker) ---------------- */}
           <section className="mt-16 sm:mt-20">
             <p className="text-center uppercase tracking-widest text-xs sm:text-sm" style={{ color: C.muted }}>
               Истории участников
             </p>
             <h2 className="mt-3 text-center hj-title uppercase leading-[0.95] text-[clamp(20px,7.5cqw,42px)]" style={{ color: C.blue }}>
-              10 000 АТЛЕТОВ В&nbsp;АЛМАТЫ И&nbsp;АСТАНЕ<br />УЖЕ&nbsp;ПРОШЛИ ЭТОТ ПУТЬ            </h2>
+              10 000 АТЛЕТОВ В&nbsp;АЛМАТЫ И&nbsp;АСТАНЕ<br />УЖЕ&nbsp;ПРОШЛИ ЭТОТ ПУТЬ
+            </h2>
             <p className="mt-4 text-center text-sm sm:text-base max-w-lg mx-auto opacity-80">
               Мы создали систему, которая работает даже для тех, кто раньше не верил в спорт. Ниже — реальные истории наших атлетов. Открой любую карточку и посмотри её историю в Instagram.
             </p>
@@ -991,13 +1016,13 @@ export default function DesignHome() {
             </p>
 
             {/* City tabs */}
-            <div className="mt-6 flex flex-wrap justify-center gap-2 sm:gap-3">
+            <div className="mt-6 flex flex-nowrap sm:flex-wrap justify-center gap-1.5 sm:gap-3">
               {CITIES.map((city) => (
                 <button
                   key={city.id}
                   type="button"
                   onClick={() => setActiveCity(city.id)}
-                  className={`rounded-full px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold uppercase tracking-widest transition ${
+                  className={`whitespace-nowrap rounded-full px-3 sm:px-5 py-2 text-xs sm:text-sm font-bold uppercase tracking-wide sm:tracking-widest transition ${
                     activeCity === city.id
                       ? "text-white"
                       : "text-neutral-500 hover:text-neutral-800"

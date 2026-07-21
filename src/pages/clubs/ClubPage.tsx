@@ -51,7 +51,8 @@ export default function ClubPage() {
   // Compute trainings list unconditionally so hook order stays stable when the
   // redirect branch fires below.
   const trainings = club ? expandClubTrainings(club) : [];
-  const totalCount = trainings.reduce((s, t) => s + t.count, 0);
+  const totalCount = trainings.reduce((s, t) => s + (t.bonus ? 0 : t.count), 0);
+  const hasAssessment = trainings.some((t) => t.bonus);
   const carousel = useSnapCarousel(trainings.length);
 
   // React Router preserves scroll position across route changes; force the
@@ -90,44 +91,50 @@ export default function ClubPage() {
               </h1>
             </div>
 
-            {/* Compact photo — no text overlay */}
-            <div
-              className="mt-6 relative overflow-hidden rounded-[24px] bg-neutral-200"
-              style={{ background: C.blue }}
-            >
-              <div className="relative w-full" style={{ aspectRatio: "16 / 10" }}>
-                {club.photo && (
-                  <img
-                    src={club.photo}
-                    alt={club.label}
-                    className="absolute inset-0 h-full w-full object-cover"
-                    onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
-                  />
-                )}
-              </div>
-            </div>
+            {/* Branch description */}
+            {club.description && (
+              <p className="mt-6 text-center text-sm sm:text-base text-neutral-700 leading-relaxed max-w-xl mx-auto">
+                {club.description}
+              </p>
+            )}
 
-            {/* Info block below photo */}
-            <div className="mt-6 space-y-3 text-center">
-              {club.address && (
-                <p className="text-sm sm:text-base text-neutral-700 leading-snug">
-                  {club.address}
+            {/* Hours & address block */}
+            {(club.address || club.schedule) && (
+              <div
+                className="mt-6 rounded-2xl border p-5 sm:p-6 max-w-md mx-auto"
+                style={{ borderColor: "rgba(0,0,0,0.08)", background: "#f7f7f7" }}
+              >
+                <p className="text-center uppercase tracking-widest text-[11px] font-bold opacity-45">
+                  Режим работы и адрес
                 </p>
-              )}
-              {club.phone && (
-                <a
-                  href={`tel:${club.phone.replace(/\s|\+/g, "")}`}
-                  className="block text-sm sm:text-base text-neutral-700 hover:text-neutral-900 underline underline-offset-4 decoration-neutral-300"
-                >
-                  {club.phone}
-                </a>
-              )}
-              {club.hours && (
-                <p className="text-sm sm:text-base text-neutral-500 leading-snug">
-                  {club.hours}
-                </p>
-              )}
-            </div>
+                <dl className="mt-4 space-y-2.5 text-sm sm:text-base">
+                  {club.address && (
+                    <div className="flex items-start gap-3">
+                      <i className="ri-map-pin-2-line text-lg shrink-0" style={{ color: C.blue }} />
+                      <span className="text-neutral-800">{club.address}</span>
+                    </div>
+                  )}
+                  {club.schedule && (
+                    <div className="flex items-start gap-3">
+                      <i className="ri-time-line text-lg shrink-0" style={{ color: C.blue }} />
+                      <span className="text-neutral-800 leading-snug">
+                        Пн–Пт: {club.schedule.weekday}
+                        <br />
+                        Сб–Вс и праздничные: {club.schedule.weekend}
+                      </span>
+                    </div>
+                  )}
+                  {club.schedule && (
+                    <div className="flex items-start gap-3">
+                      <i className="ri-customer-service-2-line text-lg shrink-0" style={{ color: C.blue }} />
+                      <span className="text-neutral-800">
+                        Отдел продаж, Пн–Вс: {club.schedule.sales}
+                      </span>
+                    </div>
+                  )}
+                </dl>
+              </div>
+            )}
 
             {/* Primary CTA — visible above the fold so users can book without
                scrolling to the trainings section below. */}
@@ -154,7 +161,7 @@ export default function ClubPage() {
               Какие тренировки доступны<br />за 2 недели?
             </h2>
             <p className="mt-3 text-center text-sm sm:text-base opacity-70">
-              {totalCount} тренировок · свайпни, чтобы посмотреть каждую
+              {totalCount} тренировок{hasAssessment ? " + assessment" : ""} · свайпни, чтобы посмотреть каждую
             </p>
 
             <div
@@ -170,12 +177,30 @@ export default function ClubPage() {
                   style={{ scrollSnapAlign: "center" }}
                 >
                   <div className="relative aspect-[4/5] w-full bg-neutral-200">
-                    <img
-                      src={t.photo}
-                      alt={t.title}
-                      className="absolute inset-0 h-full w-full object-cover"
-                      onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
-                    />
+                    {t.photoBottom ? (
+                      /* Split slot (e.g. Upper Body / Reshape): top + bottom halves */
+                      <div className="absolute inset-0 flex flex-col">
+                        <img
+                          src={t.photo}
+                          alt={t.title}
+                          className="h-1/2 w-full object-cover"
+                          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                        />
+                        <img
+                          src={t.photoBottom}
+                          alt=""
+                          className="h-1/2 w-full object-cover"
+                          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                        />
+                      </div>
+                    ) : (
+                      <img
+                        src={t.photo}
+                        alt={t.title}
+                        className="absolute inset-0 h-full w-full object-cover"
+                        onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                      />
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/25" />
                     <div className="relative flex h-full w-full flex-col items-center justify-center px-6 text-center text-white">
                       <p className="hj-title uppercase tracking-widest text-base sm:text-lg">

@@ -19,6 +19,10 @@ export interface Club {
   address?: string;
   phone?: string;
   hours?: string;
+  /** Marketing description of the branch shown on the club page. */
+  description?: string;
+  /** Opening hours split into rows for the club page. */
+  schedule?: { weekday: string; weekend: string; sales: string };
   trainings: Record<ClubCategory, string[]>;
 }
 
@@ -38,7 +42,10 @@ export const CLUBS: Club[] = [
     label: "VILLA",
     city: "АЛМАТЫ",
     photo: asset("/photos/club_villa.png"),
-    address: "Аль-Фараби 140, Villa Restaurant & Boutiques",
+    address: "Аль-Фараби 140а, Villa Restaurant & Boutiques",
+    description:
+      "HJ Villa — современное пространство Hero's Journey в МФК VILLA на Аль-Фараби, оснащённое премиальными тренажерами TechnoGym и Matrix. 3 зала групповых программ — Bootcamp, Full Body и Reshape, где представлено более 30 видов тренировок: от высокоинтенсивных интервальных до силовых на всё тело.",
+    schedule: { weekday: "06:30–23:00", weekend: "08:00–20:00", sales: "10:00–20:00" },
     trainings: {
       strength: ["2× Upper Body / Reshape", "2× Legs"],
       hiit: ["2× Bootcamp"],
@@ -52,8 +59,11 @@ export const CLUBS: Club[] = [
     city: "АЛМАТЫ",
     photo: asset("/photos/club_4you.png"),
     address: "Ескараева 3",
+    description:
+      "HJ 4YOU — флагманское пространство Hero's Journey в Алматы, оснащённое тренажерами Matrix топовой линейки. 5 залов групповых программ — Bootcamp, Upper Body, Legs, Metcon и Reshape, где представлено более 40 видов тренировок под каждую фитнес-цель: от жиросжигания до построения атлетичного тела. Собственный центр оценки тела, где атлеты проходят физическую диагностику тела на силу, мощность, выносливость и состав тела.",
+    schedule: { weekday: "06:00–23:00", weekend: "08:00–20:00", sales: "10:00–20:00" },
     trainings: {
-      strength: ["2× Upper Body", "1× Legs / Glute", "1× Reshape"],
+      strength: ["2× Upper Body", "1× Legs / Glute", "1× Reshape", "Assessment"],
       hiit: ["1× Bootcamp", "1× Metcon"],
       mindBody: [],
     },
@@ -65,6 +75,9 @@ export const CLUBS: Club[] = [
     city: "АЛМАТЫ",
     photo: asset("/photos/club_colibri.png"),
     address: "Уалиханова 170/1",
+    description:
+      "HJ Colibri — современное пространство Hero's Journey, оснащённое премиальными тренажерами TechnoGym. 4 зала групповых программ — Bootcamp, Metcon, Full Body и Legs, где представлено более 25 видов тренировок: силовые, HIIT, кардио-силовые со свободными весами и другие.",
+    schedule: { weekday: "06:30–23:00", weekend: "08:00–20:00", sales: "10:00–20:00" },
     trainings: {
       strength: ["2× Upper", "1× Legs / Glutes"],
       hiit: ["2× Bootcamp", "1× Metcon"],
@@ -78,6 +91,9 @@ export const CLUBS: Club[] = [
     city: "АЛМАТЫ",
     photo: asset("/photos/club_promenade.png"),
     address: "Абая 44а, ТРЦ Promenade",
+    description:
+      "HJ Promenade — современное пространство Hero's Journey в самом центре Алматы, оснащённое передовыми тренажерами от ведущих мировых производителей. 4 зала групповых программ — Bootcamp, Metcon, Full Body и Legs, где представлено более 25 видов тренировок: силовые, HIIT, кардио-силовые со свободными весами и другие.",
+    schedule: { weekday: "06:30–23:00", weekend: "08:00–20:00", sales: "10:00–20:00" },
     trainings: {
       strength: ["2× Full Body"],
       hiit: ["1× Bootcamp", "1× Metcon"],
@@ -91,6 +107,9 @@ export const CLUBS: Club[] = [
     city: "АСТАНА",
     photo: asset("/photos/club_nurlyorda.png"),
     address: "Кабанбай батыра 11/5",
+    description:
+      "HJ Nurly Orda — современное пространство Hero's Journey в Астане, оснащённое премиальными тренажерами TechnoGym. 3 зала групповых программ — Bootcamp, Full Body и Legs, где представлено более 20 видов тренировок: силовые, HIIT и кардио-форматы под каждую фитнес-цель.",
+    schedule: { weekday: "06:30–23:00", weekend: "08:00–20:00", sales: "10:00–20:00" },
     trainings: {
       strength: ["2× Leg Day", "2× Upper Body"],
       hiit: ["2× Bootcamp"],
@@ -103,7 +122,10 @@ export const CLUBS: Club[] = [
     label: "EUROPE CITY",
     city: "АСТАНА",
     photo: asset("/photos/club_europecity.png"),
-    address: "Акмешит 1",
+    address: "Улица Акмешит, 1/2",
+    description:
+      "HJ Europe City — самое большое пространство Hero's Journey в Астане, оснащённое передовыми тренажерами от ведущих мировых производителей. 5 залов групповых программ — Bootcamp, Metcon, Full Body, Legs и Mind&Body, где представлено более 30 видов тренировок: от высокоинтенсивных интервальных до йоги и восстановительных практик.",
+    schedule: { weekday: "06:30–23:00", weekend: "08:00–20:00", sales: "10:00–20:00" },
     trainings: {
       strength: ["2× Upper Body", "1× Legs / Glutes"],
       hiit: ["2× Metcon"],
@@ -163,7 +185,7 @@ export const CITIES: { id: CityId; label: string; clubCity?: Club["city"] }[] = 
  * type string used inside `Club.trainings.*`. Photos live in /public/photos. */
 export const TRAINING_INFO: Record<
   string,
-  { title: string; photo: string; body: string }
+  { title: string; photo: string; body: string; photoBottom?: string; bonus?: boolean }
 > = {
   "Upper Body": {
     title: "UPPER BODY",
@@ -173,7 +195,10 @@ export const TRAINING_INFO: Record<
   "Upper Body / Reshape": {
     title: "UPPER BODY / RESHAPE",
     photo: asset("/photos/upper.png"),
-    body: "Верхняя часть тела с элементами формообразующей работы. Комбинация силы и рельефа.",
+    // Split card: two options for the same slot — Upper Body on top,
+    // Reshape on the bottom half.
+    photoBottom: asset("/photos/reshape.png"),
+    body: "На выбор: Upper Body или Reshape в одном слоте — силовая на верх тела либо работа на реформерах.",
   },
   "Upper": {
     title: "UPPER",
@@ -225,6 +250,12 @@ export const TRAINING_INFO: Record<
     photo: asset("/photos/upper.png"),
     body: "Тренировка на всё тело за один сет. Универсальный формат для баланса силы и кардио.",
   },
+  "Assessment": {
+    title: "ASSESSMENT",
+    photo: asset("/photos/assessment.png"),
+    body: "30-минутное тестирование тела, где замеряются 6 показателей: состав тела, жимовую силу, тяговую силу, силу ног, выносливость и мощность.",
+    bonus: true,
+  },
 };
 
 /** Canonical display order of training types on the club page. Upper Body
@@ -244,6 +275,7 @@ const CANONICAL_TYPE_ORDER = [
   "Reshape + Assessment",
   "Metcon",
   "Mind & Body",
+  "Assessment",
 ];
 
 /** Flatten a club's trainings into one card per unique type (no duplication
@@ -279,9 +311,11 @@ export function expandClubTrainings(club: Club) {
     return {
       key: `${club.id}-${idx}-${entry.type}`,
       count: entry.count,
-      countLabel: `${entry.count}× ${noun}`,
+      bonus: !!info.bonus,
+      countLabel: info.bonus ? "Бонус" : `${entry.count}× ${noun}`,
       title: info.title,
       photo: info.photo,
+      photoBottom: info.photoBottom,
       body: info.body,
     };
   });
