@@ -41,10 +41,10 @@ export const CLUBS: Club[] = [
     backendId: CLUB_BACKEND_IDS.villa,
     label: "VILLA",
     city: "АЛМАТЫ",
-    photo: asset("/photos/club_villa.png"),
+    photo: asset("/photos/club_villa.jpg"),
     address: "Аль-Фараби 140а, Villa Restaurant & Boutiques",
     description:
-      "HJ Villa — современное пространство Hero's Journey в МФК VILLA на Аль-Фараби, оснащённое премиальными тренажерами TechnoGym и Matrix. 3 зала групповых программ — Bootcamp, Full Body и Reshape, где представлено более 30 видов тренировок: от высокоинтенсивных интервальных до силовых на всё тело.",
+      "HJ Villa — современное пространство Hero's Journey в МФК VILLA на Аль-Фараби, оснащённое премиальными тренажерами TechnoGym и Matrix. 3 зала групповых программ — Bootcamp, Full Body и Reshape, где представлено более 30 видов тренировок: от интервальных до силовых на всё тело.",
     schedule: { weekday: "06:30–23:00", weekend: "08:00–20:00", sales: "10:00–20:00" },
     trainings: {
       strength: ["2× Upper Body / Reshape", "2× Legs"],
@@ -57,7 +57,7 @@ export const CLUBS: Club[] = [
     backendId: CLUB_BACKEND_IDS["4you"],
     label: "4YOU",
     city: "АЛМАТЫ",
-    photo: asset("/photos/club_4you.png"),
+    photo: asset("/photos/club_4you.jpg"),
     address: "Ескараева 3",
     description:
       "HJ 4YOU — флагманское пространство Hero's Journey в Алматы, оснащённое тренажерами Matrix топовой линейки. 5 залов групповых программ — Bootcamp, Upper Body, Legs, Metcon и Reshape, где представлено более 40 видов тренировок под каждую фитнес-цель: от жиросжигания до построения атлетичного тела. Собственный центр оценки тела, где атлеты проходят физическую диагностику тела на силу, мощность, выносливость и состав тела.",
@@ -73,10 +73,10 @@ export const CLUBS: Club[] = [
     backendId: CLUB_BACKEND_IDS.colibri,
     label: "COLIBRI",
     city: "АЛМАТЫ",
-    photo: asset("/photos/club_colibri.png"),
+    photo: asset("/photos/club_colibri.jpg"),
     address: "Уалиханова 170/1",
     description:
-      "HJ Colibri — современное пространство Hero's Journey, оснащённое премиальными тренажерами TechnoGym. 4 зала групповых программ — Bootcamp, Metcon, Full Body и Legs, где представлено более 25 видов тренировок: силовые, HIIT, кардио-силовые со свободными весами и другие.",
+      "HJ Colibri — современное пространство Hero's Journey, оснащённое премиальными тренажерами TechnoGym. 4 зала групповых программ — Bootcamp, Metcon, Upper Body и Legs, где представлено более 25 видов тренировок: силовые, HIIT, кардио-силовые со свободными весами и другие.",
     schedule: { weekday: "06:30–23:00", weekend: "08:00–20:00", sales: "10:00–20:00" },
     trainings: {
       strength: ["2× Upper", "1× Legs / Glutes"],
@@ -89,7 +89,7 @@ export const CLUBS: Club[] = [
     backendId: CLUB_BACKEND_IDS.promenade,
     label: "PROMENADE",
     city: "АЛМАТЫ",
-    photo: asset("/photos/club_promenade.png"),
+    photo: asset("/photos/club_promenade.jpg"),
     address: "Абая 44а, ТРЦ Promenade",
     description:
       "HJ Promenade — современное пространство Hero's Journey в самом центре Алматы, оснащённое передовыми тренажерами от ведущих мировых производителей. 4 зала групповых программ — Bootcamp, Metcon, Full Body и Legs, где представлено более 25 видов тренировок: силовые, HIIT, кардио-силовые со свободными весами и другие.",
@@ -105,7 +105,7 @@ export const CLUBS: Club[] = [
     backendId: CLUB_BACKEND_IDS.nurly,
     label: "NURLY ORDA",
     city: "АСТАНА",
-    photo: asset("/photos/club_nurlyorda.png"),
+    photo: asset("/photos/club_nurlyorda.jpg"),
     address: "Кабанбай батыра 11/5",
     description:
       "HJ Nurly Orda — современное пространство Hero's Journey в Астане, оснащённое премиальными тренажерами TechnoGym. 3 зала групповых программ — Bootcamp, Full Body и Legs, где представлено более 20 видов тренировок: силовые, HIIT и кардио-форматы под каждую фитнес-цель.",
@@ -121,10 +121,10 @@ export const CLUBS: Club[] = [
     backendId: CLUB_BACKEND_IDS.europe,
     label: "EUROPE CITY",
     city: "АСТАНА",
-    photo: asset("/photos/club_europecity.png"),
+    photo: asset("/photos/club_europecity.jpg"),
     address: "Улица Акмешит, 1/2",
     description:
-      "HJ Europe City — самое большое пространство Hero's Journey в Астане, оснащённое передовыми тренажерами от ведущих мировых производителей. 5 залов групповых программ — Bootcamp, Metcon, Full Body, Legs и Mind&Body, где представлено более 30 видов тренировок: от высокоинтенсивных интервальных до йоги и восстановительных практик.",
+      "HJ Europe City — самое большое пространство Hero's Journey в Астане, оснащённое передовыми тренажерами от ведущих мировых производителей. 5 залов групповых программ — Bootcamp, Metcon, Full Body, Legs и Mind&Body, где представлено более 30 видов тренировок: от интервальных до йоги и восстановительных практик.",
     schedule: { weekday: "06:30–23:00", weekend: "08:00–20:00", sales: "10:00–20:00" },
     trainings: {
       strength: ["2× Upper Body", "1× Legs / Glutes"],
@@ -159,7 +159,7 @@ export const UPCOMING_CLUBS: Partial<Record<"dubai" | "ny", UpcomingClub>> = {
     addressLines: ["225 5th Avenue"],
     badge: "Открытие в 2027",
     note: "Обладателям клубных карт Hero's Journey студия будет доступна для посещения.",
-    photo: asset("/photos/club_ny.png"),
+    photo: asset("/photos/club_nyc_nomad.jpg"),
   },
   dubai: {
     country: "ОАЭ",
@@ -167,7 +167,7 @@ export const UPCOMING_CLUBS: Partial<Record<"dubai" | "ny", UpcomingClub>> = {
     addressLines: ["Warehouse No. 9, 7B Street", "Al Quoz Industrial Area 1"],
     badge: "Скоро открытие",
     note: "Обладателям клубных карт Hero's Journey студия будет доступна для посещения.",
-    photo: asset("/photos/club_dubai.png"),
+    photo: asset("/photos/club_alserkal.jpg"),
   },
 };
 
@@ -185,74 +185,86 @@ export const CITIES: { id: CityId; label: string; clubCity?: Club["city"] }[] = 
  * type string used inside `Club.trainings.*`. Photos live in /public/photos. */
 export const TRAINING_INFO: Record<
   string,
-  { title: string; photo: string; body: string; photoBottom?: string; bonus?: boolean }
+  {
+    title: string;
+    photo: string;
+    body: string;
+    photoBottom?: string;
+    bonus?: boolean;
+    /** Two-option "choose one" slot: renders a colored card with a kicker,
+     * description and two labelled half-images (e.g. Upper Body / Reshape). */
+    combo?: { label: string; photo: string }[];
+    comboBg?: string;
+  }
 > = {
   "Upper Body": {
     title: "UPPER BODY",
-    photo: asset("/photos/upper.png"),
+    photo: asset("/photos/upper.jpg"),
     body: "Тренировка на верхнюю часть тела: грудь, спина, плечи и руки. Тренер ставит технику и подбирает нагрузку под тебя.",
   },
   "Upper Body / Reshape": {
     title: "UPPER BODY / RESHAPE",
-    photo: asset("/photos/upper.png"),
-    // Split card: two options for the same slot — Upper Body on top,
-    // Reshape on the bottom half.
-    photoBottom: asset("/photos/reshape.png"),
-    body: "На выбор: Upper Body или Reshape в одном слоте — силовая на верх тела либо работа на реформерах.",
+    photo: asset("/photos/upperbody_half.jpg"),
+    body: "Upper Body или Reshape в одном слоте — силовая на верх тела либо работа на реформерах.",
+    comboBg: "#8097af",
+    combo: [
+      { label: "UPPER BODY", photo: asset("/photos/upperbody_half.jpg") },
+      { label: "RESHAPE", photo: asset("/photos/reshape_half.jpg") },
+    ],
   },
   "Upper": {
     title: "UPPER",
-    photo: asset("/photos/upper.png"),
+    photo: asset("/photos/upper.jpg"),
     body: "Тренировка на верхнюю часть тела: грудь, спина, плечи, руки.",
   },
   "Legs": {
     title: "LEGS",
-    photo: asset("/photos/legs.png"),
+    photo: asset("/photos/legs.jpg"),
     body: "Тренировка на ноги. Приседы, выпады, тяги — движения, которые формируют силовую базу.",
   },
   "Leg Day": {
     title: "LEG DAY",
-    photo: asset("/photos/legs.png"),
+    photo: asset("/photos/legs.jpg"),
     body: "День ног — приседы, выпады, тяги. Работа на силу и объём.",
   },
   "Legs / Glute": {
     title: "LEGS / GLUTE",
-    photo: asset("/photos/legs.png"),
+    photo: asset("/photos/legs.jpg"),
     body: "Ноги и ягодицы. Развитие силы, объёма и формы.",
   },
   "Legs / Glutes": {
     title: "LEGS / GLUTES",
-    photo: asset("/photos/legs.png"),
+    photo: asset("/photos/legs.jpg"),
     body: "Ноги и ягодицы. Развитие силы, объёма и формы.",
   },
   "Bootcamp": {
     title: "BOOTCAMP",
-    photo: asset("/photos/bootcamo.png"),
-    body: "Функциональная тренировка высокой интенсивности. Работа с собственным весом и лёгкими снарядами.",
+    photo: asset("/photos/bootcamo.jpg"),
+    body: "Интервальная кардио тренировка на беговых дорожках и упражнения на фит-бенчах с гантелями и своим весом.",
   },
   "Metcon": {
     title: "METCON",
-    photo: asset("/photos/metcon.png"),
+    photo: asset("/photos/metcon.jpg"),
     body: "Metabolic conditioning — интервалы на выносливость и жиросжигание. Кардио и сила в одном формате.",
   },
   "Reshape": {
     title: "RESHAPE",
-    photo: asset("/photos/reshape.png"),
+    photo: asset("/photos/reshape.jpg"),
     body: "Работа на реформерах: упражнения для проработки глубоких мышц и укрепления кора.",
   },
   "Mind & Body": {
     title: "MIND & BODY",
-    photo: asset("/photos/mindandbody.png"),
+    photo: asset("/photos/mindandbody.jpg"),
     body: "Восстановление, растяжка, подвижность. Тело переваривает нагрузку недели.",
   },
   "Full Body": {
     title: "FULL BODY",
-    photo: asset("/photos/upper.png"),
+    photo: asset("/photos/upper.jpg"),
     body: "Тренировка на всё тело за один сет. Универсальный формат для баланса силы и кардио.",
   },
   "Assessment": {
     title: "ASSESSMENT",
-    photo: asset("/photos/assessment.png"),
+    photo: asset("/photos/assessment.jpg"),
     body: "30-минутное тестирование тела, где замеряются 6 показателей: состав тела, жимовую силу, тяговую силу, силу ног, выносливость и мощность.",
     bonus: true,
   },
@@ -304,18 +316,28 @@ export function expandClubTrainings(club: Club) {
   return entries.map((entry, idx) => {
     const info = TRAINING_INFO[entry.type] ?? {
       title: entry.type.toUpperCase(),
-      photo: asset("/photos/upper.png"),
+      photo: asset("/photos/upper.jpg"),
       body: "Тренировка входит в абонемент Basecamp.",
     };
-    const noun = entry.count === 1 ? "тренировка" : "тренировок";
+    const n = entry.count;
+    const mod10 = n % 10;
+    const mod100 = n % 100;
+    const noun =
+      mod10 === 1 && mod100 !== 11
+        ? "тренировка"
+        : mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)
+          ? "тренировки"
+          : "тренировок";
     return {
       key: `${club.id}-${idx}-${entry.type}`,
       count: entry.count,
       bonus: !!info.bonus,
-      countLabel: info.bonus ? "Бонус" : `${entry.count}× ${noun}`,
+      countLabel: info.bonus ? "Бонус" : `${n} ${noun}`,
       title: info.title,
       photo: info.photo,
       photoBottom: info.photoBottom,
+      combo: info.combo,
+      comboBg: info.comboBg,
       body: info.body,
     };
   });

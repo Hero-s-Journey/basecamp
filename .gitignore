@@ -37,3 +37,6 @@ CLAUDE.md
 
 # Local-only files kept out of the repo
 _archive/
+
+# Original photo PNGs kept locally only — deploy ships optimized .jpg
+public/photos/*.png

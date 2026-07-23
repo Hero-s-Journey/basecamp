@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { expandClubTrainings, getClub } from "@/data/clubs";
 import { usePaymentModal } from "@/components/feature/PaymentModalContext";
@@ -7,11 +7,22 @@ import { asset } from "@/lib/asset";
 
 const C = {
   blue: "#8ABAD5",
+  blueBright: "#6BC6F2",
   ink: "#201E1E",
   muted: "#DADADA",
 };
 
 const APP_URL = "https://herosjourney.kz/app";
+
+/** Static styled maps per club (with HJ pin). Files live in /public/photos. */
+const CLUB_MAP: Record<string, string> = {
+  villa: asset("/photos/HJMAPS_VILLA.jpg"),
+  colibri: asset("/photos/HJMAPS_COLIBRI.jpg"),
+  "4you": asset("/photos/HJMAPS_4YOU.jpg"),
+  promenade: asset("/photos/HJMAPS_PROMENADE.jpg"),
+  nurly: asset("/photos/HJMAPS_NURLYORDA.jpg"),
+  europe: asset("/photos/HJMAPS_EUROPECITY.jpg"),
+};
 
 /** Same onboarding steps as the fitness-checkup landing, adapted to the
  * Basecamp light theme. */
@@ -55,10 +66,26 @@ export default function ClubPage() {
   const hasAssessment = trainings.some((t) => t.bonus);
   const carousel = useSnapCarousel(trainings.length);
 
+  // Floating CTA: visible while scrolling, hides once the in-flow ("dock")
+  // button scrolls into view so the two never overlap.
+  const dockRef = useRef<HTMLDivElement>(null);
+  const [dockVisible, setDockVisible] = useState(false);
+
   // React Router preserves scroll position across route changes; force the
   // club page to open from the top whenever `id` changes.
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [id]);
+
+  useEffect(() => {
+    const el = dockRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setDockVisible(entry.isIntersecting),
+      { threshold: 0.1 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
   }, [id]);
 
   if (!club) return <Navigate to="/" replace />;
@@ -98,15 +125,28 @@ export default function ClubPage() {
               </p>
             )}
 
-            {/* Hours & address block */}
+            {/* Map + hours & address block, side by side on desktop */}
             {(club.address || club.schedule) && (
-              <div
-                className="mt-6 rounded-2xl border p-5 sm:p-6 max-w-md mx-auto"
-                style={{ borderColor: "rgba(0,0,0,0.08)", background: "#f7f7f7" }}
-              >
-                <p className="text-center uppercase tracking-widest text-[11px] font-bold opacity-45">
-                  Режим работы и адрес
-                </p>
+              <div className="mt-6 flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto items-stretch">
+                {CLUB_MAP[club.id] && (
+                  <div className="sm:w-1/2 overflow-hidden rounded-2xl border" style={{ borderColor: "rgba(0,0,0,0.08)" }}>
+                    <img
+              loading="lazy"
+              decoding="async"
+                      src={CLUB_MAP[club.id]}
+                      alt={`Карта — ${club.label}`}
+                      className="h-48 sm:h-full w-full object-cover"
+                      onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                    />
+                  </div>
+                )}
+                <div
+                  className="sm:w-1/2 rounded-2xl border p-5 sm:p-6"
+                  style={{ borderColor: "rgba(0,0,0,0.08)", background: "#f7f7f7" }}
+                >
+                  <p className="text-center uppercase tracking-widest text-[11px] font-bold opacity-45">
+                    Режим работы и адрес
+                  </p>
                 <dl className="mt-4 space-y-2.5 text-sm sm:text-base">
                   {club.address && (
                     <div className="flex items-start gap-3">
@@ -132,27 +172,10 @@ export default function ClubPage() {
                       </span>
                     </div>
                   )}
-                </dl>
+                  </dl>
+                </div>
               </div>
             )}
-
-            {/* Primary CTA — visible above the fold so users can book without
-               scrolling to the trainings section below. */}
-            <div className="mt-8 flex justify-center">
-              <button
-                type="button"
-                onClick={() => open({ clubId: club.id })}
-                className="inline-flex flex-col items-center justify-center rounded-3xl px-10 py-3 sm:px-14 sm:py-4 shadow-lg transition hover:brightness-110"
-                style={{ background: C.blue }}
-              >
-                <span className="hj-title text-3xl sm:text-4xl tracking-wide text-white">
-                  ЗАПИСАТЬСЯ
-                </span>
-                <span className="mt-1 text-xs sm:text-sm font-semibold tracking-widest uppercase text-white/95">
-                  за 19 990 тг
-                </span>
-              </button>
-            </div>
           </section>
 
           {/* TRAININGS — swipeable carousel */}
@@ -167,7 +190,7 @@ export default function ClubPage() {
             <div
               ref={carousel.ref}
               onScroll={carousel.onScroll}
-              className="mt-8 flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-[28px]"
+              className="mt-8 mx-auto max-w-[420px] flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-[28px]"
               style={{ scrollbarWidth: "none" }}
             >
               {trainings.map((t) => (
@@ -176,43 +199,61 @@ export default function ClubPage() {
                   className="relative w-full shrink-0 snap-center"
                   style={{ scrollSnapAlign: "center" }}
                 >
-                  <div className="relative aspect-[4/5] w-full bg-neutral-200">
-                    {t.photoBottom ? (
-                      /* Split slot (e.g. Upper Body / Reshape): top + bottom halves */
-                      <div className="absolute inset-0 flex flex-col">
-                        <img
-                          src={t.photo}
-                          alt={t.title}
-                          className="h-1/2 w-full object-cover"
-                          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
-                        />
-                        <img
-                          src={t.photoBottom}
-                          alt=""
-                          className="h-1/2 w-full object-cover"
-                          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
-                        />
+                  <div className="relative aspect-[4/5] w-full overflow-hidden bg-neutral-200 [container-type:inline-size]">
+                    {t.combo ? (
+                      /* "Choose one" slot (Upper Body / Reshape): colored card with
+                         kicker, description and two labelled half-images. */
+                      <div className="absolute inset-0 flex flex-col px-4 pt-5 pb-4 text-white" style={{ background: t.comboBg }}>
+                        <p className="text-center hj-title uppercase tracking-widest text-lg sm:text-xl">
+                          {t.count} тренировки на выбор
+                        </p>
+                        <p className="mt-2 text-center text-[12px] sm:text-sm leading-snug opacity-95 max-w-[92%] mx-auto">
+                          {t.body}
+                        </p>
+                        <div className="mt-3 flex min-h-0 flex-1 flex-col gap-2">
+                          {t.combo.map((o) => (
+                            <div key={o.label} className="relative min-h-0 flex-1 overflow-hidden rounded-2xl">
+                              <img
+              loading="lazy"
+              decoding="async"
+                                src={o.photo}
+                                alt={o.label}
+                                className="absolute inset-0 h-full w-full object-cover"
+                                onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                              />
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="hj-title uppercase leading-none text-white text-[clamp(28px,13cqw,60px)] drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]">
+                                  {o.label}
+                                </span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     ) : (
-                      <img
-                        src={t.photo}
-                        alt={t.title}
-                        className="absolute inset-0 h-full w-full object-cover"
-                        onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
-                      />
+                      <>
+                        <img
+              loading="lazy"
+              decoding="async"
+                          src={t.photo}
+                          alt={t.title}
+                          className="absolute inset-0 h-full w-full object-cover"
+                          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/25" />
+                        <div className="relative flex h-full w-full flex-col items-center justify-center px-6 text-center text-white">
+                          <p className="hj-title uppercase tracking-widest text-base sm:text-lg">
+                            {t.countLabel}
+                          </p>
+                          <h3 className="mt-2 hj-title uppercase leading-none text-[clamp(44px,12vw,80px)]">
+                            {t.title}
+                          </h3>
+                          <p className="mt-4 text-sm sm:text-base max-w-md">
+                            {t.body}
+                          </p>
+                        </div>
+                      </>
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/25" />
-                    <div className="relative flex h-full w-full flex-col items-center justify-center px-6 text-center text-white">
-                      <p className="hj-title uppercase tracking-widest text-base sm:text-lg">
-                        {t.countLabel}
-                      </p>
-                      <h3 className="mt-2 hj-title uppercase leading-none text-[clamp(44px,12vw,80px)]">
-                        {t.title}
-                      </h3>
-                      <p className="mt-4 text-sm sm:text-base max-w-md">
-                        {t.body}
-                      </p>
-                    </div>
                   </div>
                 </div>
               ))}
@@ -227,18 +268,18 @@ export default function ClubPage() {
                   aria-label={`Тренировка ${i + 1}`}
                   onClick={() => carousel.goTo(i)}
                   className={`h-2 rounded-full transition-all ${
-                    i === carousel.index ? "w-8 bg-neutral-800" : "w-2 bg-neutral-300"
+                    i === carousel.index ? "w-2 bg-neutral-900" : "w-2 bg-neutral-300"
                   }`}
                 />
               ))}
             </div>
 
-            <div className="mt-10 flex flex-col items-center">
+            <div ref={dockRef} className="mt-10 flex flex-col items-center">
               <button
                 type="button"
                 onClick={() => open({ clubId: club.id })}
                 className="inline-flex flex-col items-center justify-center rounded-3xl px-10 py-3 sm:px-14 sm:py-4 shadow-lg transition hover:brightness-110"
-                style={{ background: C.blue }}
+                style={{ background: C.blueBright }}
               >
                 <span className="hj-title text-3xl sm:text-4xl tracking-wide text-white">
                   ЗАПИСАТЬСЯ
@@ -269,7 +310,7 @@ export default function ClubPage() {
                   <div className="flex items-start gap-4">
                     <div className="flex h-16 w-16 sm:h-20 sm:w-20 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white border border-black/5">
                       {s.image ? (
-                        <img src={s.image} alt="" className="h-full w-full object-contain p-1.5" />
+                        <img src={s.image} alt="" loading="lazy" decoding="async" className="h-full w-full object-contain p-1.5" />
                       ) : (
                         <i className={`${s.icon} text-3xl sm:text-4xl`} style={{ color: C.blue }} />
                       )}
@@ -311,12 +352,36 @@ export default function ClubPage() {
               <Link to="/" className="underline underline-offset-4 hover:text-white transition-colors">На главную</Link>
             </div>
             <img
+              loading="lazy"
+              decoding="async"
               src={asset("/logo/astanahub_logo.png")}
               alt="Astana Hub"
               className="h-10 w-auto object-contain opacity-70"
             />
           </div>
         </footer>
+
+        {/* Floating CTA — always visible while scrolling; hides once the
+           in-flow dock button is on screen so they never overlap. */}
+        <div
+          className={`fixed inset-x-0 bottom-0 z-40 border-t border-black/5 bg-white/90 backdrop-blur transition-all duration-300 ${
+            dockVisible ? "pointer-events-none translate-y-full opacity-0" : "translate-y-0 opacity-100"
+          }`}
+          style={{ paddingBottom: "max(env(safe-area-inset-bottom), 10px)" }}
+        >
+          <div className="mx-auto flex max-w-[520px] justify-center px-4 pt-2.5 sm:max-w-[640px] sm:px-6">
+            <button
+              type="button"
+              onClick={() => open({ clubId: club.id })}
+              className="inline-flex items-center justify-center rounded-3xl px-12 py-3 sm:px-16 sm:py-3.5 shadow-lg transition hover:brightness-110"
+              style={{ background: C.blueBright }}
+            >
+              <span className="hj-title text-2xl sm:text-3xl tracking-wide text-white leading-none">
+                ЗАПИСАТЬСЯ
+              </span>
+            </button>
+          </div>
+        </div>
 
         <style>{`
           .no-scrollbar::-webkit-scrollbar { display: none; }

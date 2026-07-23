@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { asset } from "@/lib/asset";
 import { CLUBS, CITIES, UPCOMING_CLUBS, type CityId, type Club, type UpcomingClub } from "@/data/clubs";
@@ -54,8 +54,8 @@ const DIFF_CARDS: DiffCard[] = [
   },
   {
     kicker: "АНАЛИТИКА",
-    title: "Отчёт после каждой тренировки",
-    body: "Система фиксирует каждую секунду тренировки. После занятия ты получаешь детальный разбор: пульсовые зоны, сожжённые калории, вес на каждом подходе и десятки других показателей.",
+    title: "Отчёт после тренировки",
+    body: "После занятия ты получаешь детальный разбор: пульсовые зоны, сожжённые калории, вес на каждом подходе и десятки других показателей.",
   },
   {
     kicker: "СИСТЕМА",
@@ -103,7 +103,7 @@ const TRAINING_TYPES: TrainingType[] = [
         title: "UPPER BODY",
         tagline:
           "Силовые тренировки на верх тела: грудь, спина, плечи, руки. Тренажёры с индивидуально подобранным весом и видео-инструкцией.",
-        photo: asset("/photos/upper.png"),
+        photo: asset("/photos/upper.jpg"),
         directions: [
           { name: "Full Body", note: "всё тело" },
           { name: "Upper", note: "грудь, спина, плечи" },
@@ -118,7 +118,7 @@ const TRAINING_TYPES: TrainingType[] = [
         title: "LEGS",
         tagline:
           "Силовые тренировки на низ тела: ноги и ягодицы. Тренажёры с индивидуально подобранным весом и видео-инструкцией.",
-        photo: asset("/photos/legs.png"),
+        photo: asset("/photos/legs.jpg"),
         directions: [
           { name: "Legs", note: "бёдра, голень, ягодицы" },
           { name: "Glute", note: "точечно на ягодичные" },
@@ -137,8 +137,8 @@ const TRAINING_TYPES: TrainingType[] = [
         key: "bootcamp",
         title: "BOOTCAMP",
         tagline:
-          "Интенсивные интервалы: кардио на беговых дорожках и упражнения на фит-бенчах с гантелями и своим весом.",
-        photo: asset("/photos/bootcamo.png"),
+          "Интервальная кардио тренировка на беговых дорожках и упражнения на фит-бенчах с гантелями и своим весом.",
+        photo: asset("/photos/bootcamo.jpg"),
         stat: { value: "до 1000", label: "калорий за тренировку" },
         bullets: [
           "Разгоняет метаболизм, укрепляет сердце и приводит мышцы в тонус",
@@ -149,7 +149,7 @@ const TRAINING_TYPES: TrainingType[] = [
         title: "METCON",
         tagline:
           "Функциональный HIIT (metabolic conditioning): кардио + силовая работа. Выносливость, сила и скорость.",
-        photo: asset("/photos/metcon.png"),
+        photo: asset("/photos/metcon.jpg"),
         stat: { value: "до 1000", label: "калорий за тренировку" },
         bullets: ["Работа на пределе с короткими паузами"],
       },
@@ -166,7 +166,7 @@ const TRAINING_TYPES: TrainingType[] = [
         title: "RESHAPE",
         tagline:
           "Функциональный пилатес на реформерах Lagree. Пружины и подвижная платформа включают глубокие мышцы, которые не работают на классических тренировках.",
-        photo: asset("/photos/reshape.png"),
+        photo: asset("/photos/reshape.jpg"),
         availability: "Доступен в HJ 4YOU и HJ Villa",
       },
     ],
@@ -181,7 +181,7 @@ const TRAINING_TYPES: TrainingType[] = [
         key: "mind-body",
         title: "MIND & BODY",
         tagline: "Растяжка и восстановление после силовых и интервальных нагрузок.",
-        photo: asset("/photos/mindandbody.png"),
+        photo: asset("/photos/mindandbody.jpg"),
         availability: "Доступен в HJ Europe City",
       },
     ],
@@ -250,6 +250,8 @@ function ZoneStoriesOverlay({
           {type.zones.map((z) => (
             <div key={z.key} className="relative h-full w-full shrink-0 snap-center overflow-hidden">
               <img
+              loading="lazy"
+              decoding="async"
                 src={z.photo}
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover"
@@ -329,8 +331,8 @@ function ZoneStoriesOverlay({
                 type="button"
                 aria-label={`Зал ${i + 1}`}
                 onClick={() => stories.goTo(i)}
-                className={`pointer-events-auto h-2 rounded-full transition-all ${
-                  i === stories.index ? "w-7 bg-white" : "w-2 bg-white/50"
+                className={`pointer-events-auto h-2 w-2 rounded-full transition-all ${
+                  i === stories.index ? "bg-white" : "bg-white/40"
                 }`}
               />
             ))}
@@ -535,6 +537,8 @@ function UpcomingClubCard({ info }: { info: UpcomingClub }) {
     >
       {info.photo && (
         <img
+              loading="lazy"
+              decoding="async"
           src={info.photo}
           alt={info.label}
           className="absolute inset-0 h-full w-full object-cover"
@@ -584,7 +588,7 @@ function ClubCarousel({ clubs }: { clubs: Club[] }) {
       <div
         ref={car.ref}
         onScroll={car.onScroll}
-        className="mt-8 flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar -mx-5 px-5 sm:-mx-6 sm:px-6"
+        className="mt-8 flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-proximity scroll-smooth no-scrollbar -mx-5 px-5 sm:-mx-6 sm:px-6"
         style={{ scrollbarWidth: "none" }}
       >
         {clubs.map((c) => (
@@ -596,6 +600,8 @@ function ClubCarousel({ clubs }: { clubs: Club[] }) {
           >
             {c.photo && (
               <img
+              loading="lazy"
+              decoding="async"
                 src={c.photo}
                 alt={c.label}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -650,7 +656,7 @@ function ClubCarousel({ clubs }: { clubs: Club[] }) {
               aria-label={`Клуб ${i + 1}`}
               onClick={() => car.goTo(i)}
               className={`h-2 rounded-full transition-all ${
-                i === car.index ? "w-8 bg-neutral-800" : "w-2 bg-neutral-300"
+                i === car.index ? "w-2 bg-neutral-900" : "w-2 bg-neutral-300"
               }`}
             />
           ))}
@@ -695,6 +701,31 @@ export default function DesignHome() {
     return target ? CLUBS.filter((c) => c.city === target) : [];
   }, [activeCity, cityMap]);
 
+  // Floating "Выбрать клуб": appears after the hero scrolls away, hides once
+  // the club-picker section comes into view.
+  const heroRef = useRef<HTMLElement>(null);
+  const clubsRef = useRef<HTMLElement>(null);
+  const [heroVisible, setHeroVisible] = useState(true);
+  const [clubsVisible, setClubsVisible] = useState(false);
+  const showFloatingCta = !heroVisible && !clubsVisible;
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    const clubs = clubsRef.current;
+    const observers: IntersectionObserver[] = [];
+    if (hero) {
+      const io = new IntersectionObserver(([e]) => setHeroVisible(e.isIntersecting), { threshold: 0 });
+      io.observe(hero);
+      observers.push(io);
+    }
+    if (clubs) {
+      const io = new IntersectionObserver(([e]) => setClubsVisible(e.isIntersecting), { threshold: 0.1 });
+      io.observe(clubs);
+      observers.push(io);
+    }
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
   return (
     <>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -713,6 +744,7 @@ export default function DesignHome() {
              stretch. Content stack sits mid-lower with padding-bottom so the
              CTA + price aren't glued to the edge. */}
           <section
+            ref={heroRef}
             className="relative overflow-hidden rounded-[32px] mt-10 sm:mt-14 w-full bg-neutral-900"
             style={{
               height: "min(calc(100dvh - 6rem), 900px)",
@@ -720,7 +752,10 @@ export default function DesignHome() {
             }}
           >
             <img
-              src={asset("/photos/hero_new.png")}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              src={asset("/photos/hero_new.jpg")}
               alt=""
               className="absolute inset-0 h-full w-full object-cover"
               onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
@@ -729,6 +764,8 @@ export default function DesignHome() {
 
             <div className="relative h-full w-full flex flex-col items-center px-6 pt-6 sm:pt-8 pb-8 sm:pb-10 text-white">
               <img
+              loading="lazy"
+              decoding="async"
                 src={asset("/logo/hj_logo.png")}
                 alt="Hero's Journey"
                 className="h-10 sm:h-14 w-auto object-contain"
@@ -845,18 +882,16 @@ export default function DesignHome() {
               Чем Hero's Journey отличается<br className="hidden sm:block" /> от обычного зала?
             </h2>
 
-            <div className="mt-8 relative mx-auto max-w-[420px]">
             <div
               ref={diff.ref}
               onScroll={diff.onScroll}
-              className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar rounded-[28px]"
+              className="mt-8 flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-proximity scroll-smooth no-scrollbar -mx-5 px-5 sm:-mx-6 sm:px-6"
               style={{ scrollbarWidth: "none" }}
             >
               {DIFF_CARDS.map((c) => (
                 <div
                   key={c.title}
-                  className="relative w-full shrink-0 snap-center overflow-hidden [container-type:inline-size]"
-                  style={{ scrollSnapAlign: "center" }}
+                  className="relative shrink-0 snap-center overflow-hidden rounded-[28px] w-[82vw] max-w-[420px] [container-type:inline-size]"
                 >
                   <div className="relative aspect-[4/5] w-full bg-neutral-900">
                     {c.video ? (
@@ -899,46 +934,19 @@ export default function DesignHome() {
               ))}
             </div>
 
-            {/* Dots overlay: floats above the bottom of the current slide,
-               matching the reference design where pagination lives inside
-               the card rather than in the plain-white section below. */}
-            <div className="pointer-events-none absolute inset-x-0 bottom-4 flex justify-center gap-2">
+            {/* Dots below the carousel — same pattern as athletes / clubs */}
+            <div className="mt-6 flex justify-center gap-2 flex-wrap">
               {DIFF_CARDS.map((_, i) => (
                 <button
                   key={i}
                   type="button"
                   aria-label={`Слайд ${i + 1}`}
                   onClick={() => diff.goTo(i)}
-                  className={`pointer-events-auto h-2.5 rounded-full transition-all ${
-                    i === diff.index ? "w-8 bg-white" : "w-2.5 bg-white/50"
+                  className={`h-2 rounded-full transition-all ${
+                    i === diff.index ? "w-2 bg-neutral-900" : "w-2 bg-neutral-300"
                   }`}
                 />
               ))}
-            </div>
-            </div>
-          </section>
-
-          {/* ---------------- MID-PAGE CTA -> club picker ---------------- */}
-          <section className="mt-16 sm:mt-20">
-            <div
-              className="relative overflow-hidden rounded-[28px] px-6 py-10 sm:py-14 text-center text-white [container-type:inline-size]"
-              style={{ background: C.night }}
-            >
-              <h2 className="hj-title uppercase leading-[0.95] text-[clamp(26px,9cqw,52px)]">
-                6 тренировок с тренером<br />за 19&nbsp;990&nbsp;тг
-              </h2>
-              <p className="mt-3 text-sm sm:text-base opacity-70 max-w-md mx-auto">
-                2-недельный пробный абонемент. Выбери клуб и начни уже на этой неделе.
-              </p>
-              <a
-                href="#clubs"
-                className="mt-6 inline-flex items-center justify-center rounded-3xl px-10 py-3 sm:px-14 sm:py-4 shadow-lg transition hover:brightness-110"
-                style={{ background: C.blueBright }}
-              >
-                <span className="hj-title text-2xl sm:text-3xl tracking-wide">
-                  Выбрать клуб
-                </span>
-              </a>
             </div>
           </section>
 
@@ -957,7 +965,7 @@ export default function DesignHome() {
             <div
               ref={athlete.ref}
               onScroll={athlete.onScroll}
-              className="mt-8 flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar -mx-5 px-5 sm:-mx-6 sm:px-6"
+              className="mt-8 flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-proximity scroll-smooth no-scrollbar -mx-5 px-5 sm:-mx-6 sm:px-6"
               style={{ scrollbarWidth: "none" }}
             >
               {ATHLETES.map((a) => (
@@ -970,6 +978,8 @@ export default function DesignHome() {
                 >
                   <div className="relative aspect-[9/16] w-full overflow-hidden rounded-2xl md:rounded-3xl bg-neutral-950 border border-black/5">
                     <img
+              loading="lazy"
+              decoding="async"
                       src={a.image}
                       alt={a.name}
                       className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
@@ -993,7 +1003,7 @@ export default function DesignHome() {
                   aria-label={`Атлет ${i + 1}`}
                   onClick={() => athlete.goTo(i)}
                   className={`h-2 rounded-full transition-all ${
-                    i === athlete.index ? "w-8 bg-neutral-800" : "w-2 bg-neutral-300"
+                    i === athlete.index ? "w-2 bg-neutral-900" : "w-2 bg-neutral-300"
                   }`}
                 />
               ))}
@@ -1001,7 +1011,7 @@ export default function DesignHome() {
           </section>
 
           {/* ---------------- CHOOSE YOUR CLUB ---------------- */}
-          <section id="clubs" className="mt-16 sm:mt-20">
+          <section ref={clubsRef} id="clubs" className="mt-16 sm:mt-20">
             <p
               className="text-center uppercase tracking-widest text-xs sm:text-sm"
               style={{ color: C.muted }}
@@ -1102,12 +1112,35 @@ export default function DesignHome() {
               </a>
             </div>
             <img
+              loading="lazy"
+              decoding="async"
               src={asset("/logo/astanahub_logo.png")}
               alt="Astana Hub"
               className="h-10 w-auto object-contain opacity-70"
             />
           </div>
         </footer>
+
+        {/* Floating "Выбрать клуб" — shows after the hero leaves the screen,
+           hides once the club-picker section is in view. */}
+        <div
+          className={`fixed inset-x-0 bottom-0 z-40 border-t border-black/5 bg-white/90 backdrop-blur transition-all duration-300 ${
+            showFloatingCta ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-full opacity-0"
+          }`}
+          style={{ paddingBottom: "max(env(safe-area-inset-bottom), 10px)" }}
+        >
+          <div className="mx-auto flex max-w-[520px] justify-center px-4 pt-2.5 sm:max-w-[640px] sm:px-6">
+            <a
+              href="#clubs"
+              className="inline-flex items-center justify-center rounded-3xl px-12 py-3 sm:px-16 sm:py-3.5 shadow-lg transition hover:brightness-110"
+              style={{ background: C.blueBright }}
+            >
+              <span className="hj-title text-2xl sm:text-3xl tracking-wide text-white leading-none">
+                ВЫБРАТЬ КЛУБ
+              </span>
+            </a>
+          </div>
+        </div>
       </div>
 
       {openType && (

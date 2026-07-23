@@ -27,11 +27,11 @@ const cards = [
 ];
 
 const programs = [
-  { name: "Burn", image: asset("/photos/burn.png") },
-  { name: "Strong", image: asset("/photos/strong.png") },
-  { name: "Athlete", image: asset("/photos/athlete.png") },
-  { name: "Fitbody", image: asset("/photos/fitbody.png") },
-  { name: "Legs and Glutes", image: asset("/photos/legsandglutes.png") },
+  { name: "Burn", image: asset("/photos/burn.jpg") },
+  { name: "Strong", image: asset("/photos/strong.jpg") },
+  { name: "Athlete", image: asset("/photos/athlete.jpg") },
+  { name: "Fitbody", image: asset("/photos/fitbody.jpg") },
+  { name: "Legs and Glutes", image: asset("/photos/legsandglutes.jpg") },
 ];
 
 function ProgramSlides() {
